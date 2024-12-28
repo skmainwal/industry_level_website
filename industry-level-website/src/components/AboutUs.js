@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { ABOUT_US_DESCRIPTION } from "./utils/constant";
+import HeaderContent from "./HeaderContent";
 import {
   FaIndustry,
   FaHandshake,
@@ -36,13 +37,10 @@ const AboutUs = () => {
   return (
     <section id="about" className="services-section" ref={sectionRef}>
       <div className="about-header animate-on-scroll fade-in">
-        <div className="header-content">
-          <h2 className="about-title"> About us </h2>{" "}
-          <div className="title-underline"> </div>{" "}
-          <h4 className="services-tagline">
-            Years Of Engineering Excellence With Quality At Its Best!
-          </h4>{" "}
-        </div>{" "}
+        <HeaderContent
+          title="About us"
+          tagline="Years Of Engineering Excellence With Quality At Its Best!"
+        />
         <div className="header-background"> </div>{" "}
       </div>{" "}
       <div className="about-content">

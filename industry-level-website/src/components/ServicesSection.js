@@ -2,6 +2,7 @@ import React from "react";
 import service_image1 from "../images/services/service_image1.jpg";
 import service_image2 from "../images/services/service_image2.jpg";
 import service_image3 from "../images/services/service_image3.jpg";
+import HeaderContent from "./HeaderContent";
 
 function ServicesSection() {
   const services = [
@@ -27,14 +28,15 @@ function ServicesSection() {
 
   return (
     <section id="services" className="services-section">
-      <h2> Our Services </h2>{" "}
-      <p className="services-description">
-        Static Equipment Design and Engineering Validation We have design
+      <HeaderContent
+      title="Our Services"
+          tagline="Static Equipment Design and Engineering Validation We have design
         capabilities for pressure vessels, S & T heat exchanger, Air fin
         coolers, storage tanks etc.with a team of 5 static equipment design
         engineer and a combined experience of 63 years.(Using PV Elite
-        software).{" "}
-      </p>{" "}
+        software)"
+       />
+     
       <div className="services-grid">
         {" "}
         {services.map((service, index) => (

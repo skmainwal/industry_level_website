@@ -22,7 +22,7 @@ const ContactUs = () => {
   }, []);
 
   return (
-    <div className="contact-section">
+    <div id="contact" className="contact-section">
       <div className="contact-header animate-on-load">
         <h1> Get in Touch </h1> <div className="header-underline"> </div>{" "}
         <p className="header-description">

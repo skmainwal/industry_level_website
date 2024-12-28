@@ -3,6 +3,7 @@ import ImageSlider from "./imageSlider/ImageSlider";
 import industry_image1 from "../images/services/service_image1.jpg";
 import industry_image2 from "../images/services/service_image2.jpg";
 import industry_image3 from "../images/services/service_image3.jpg";
+import HeaderContent from "./HeaderContent";
 
 const ServedIndustry = () => {
   const industries = [
@@ -28,12 +29,15 @@ const ServedIndustry = () => {
 
   return (
     <section id="industries" className="industries-section">
-      <h2> Industries We Serve! </h2>{" "}
-      <p className="industries-description">
-        We provide comprehensive engineering solutions across various industrial
+    <HeaderContent 
+
+    title="Industries We Serve! "
+    tagline=" We provide comprehensive engineering solutions across various industrial
         sectors, leveraging our expertise to deliver innovative and efficient
-        solutions.{" "}
-      </p>{" "}
+        solutions."
+
+    />
+     
       <ImageSlider images={industries} />{" "}
     </section>
   );
