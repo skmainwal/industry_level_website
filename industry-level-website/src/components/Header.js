@@ -28,7 +28,13 @@ function Header() {
           <li>
             <a href="#services" onClick={toggleMenu}>
               {" "}
-              Services{" "}
+              Our Services{" "}
+            </a>{" "}
+          </li>{" "}
+          <li>
+            <a href="#serviced" onClick={toggleMenu}>
+              {" "}
+              Served Industry{" "}
             </a>{" "}
           </li>{" "}
           <li>
@@ -40,7 +46,7 @@ function Header() {
           <li>
             <a href="#contact" onClick={toggleMenu}>
               {" "}
-              Contact{" "}
+              Contact Us{" "}
             </a>{" "}
           </li>{" "}
         </ul>{" "}

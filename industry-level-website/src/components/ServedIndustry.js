@@ -28,16 +28,11 @@ const ServedIndustry = () => {
   ];
 
   return (
-    <section id="industries" className="industries-section">
-    <HeaderContent 
-
-    title="Industries We Serve! "
-    tagline=" We provide comprehensive engineering solutions across various industrial
-        sectors, leveraging our expertise to deliver innovative and efficient
-        solutions."
-
-    />
-     
+    <section id="serviced" className="industries-section">
+      <HeaderContent
+        title="Industries We Serve"
+        tagline="Delivering Excellence Across Multiple Sectors"
+      />
       <ImageSlider images={industries} />{" "}
     </section>
   );

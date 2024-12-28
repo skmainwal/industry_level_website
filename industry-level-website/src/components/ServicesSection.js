@@ -29,14 +29,14 @@ function ServicesSection() {
   return (
     <section id="services" className="services-section">
       <HeaderContent
-      title="Our Services"
-          tagline="Static Equipment Design and Engineering Validation We have design
+        title="Our Services"
+      
+        tagline="Static Equipment Design and Engineering Validation We have design
         capabilities for pressure vessels, S & T heat exchanger, Air fin
         coolers, storage tanks etc.with a team of 5 static equipment design
         engineer and a combined experience of 63 years.(Using PV Elite
         software)"
-       />
-     
+      />
       <div className="services-grid">
         {" "}
         {services.map((service, index) => (

@@ -1,15 +1,17 @@
+import React from "react";
 import "./styles/styles.css";
-import MainSection from "./components/MainSection";
 import Header from "./components/Header";
+import MainSection from "./components/MainSection";
 import ServicesSection from "./components/ServicesSection";
-import ImageSlider from "./components/imageSlider/ImageSlider";
-import ServedIndustry from "./components/ServedIndustry";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
+import ServedIndustry from "./components/ServedIndustry";
+import SmoothScroll from "./components/utils/SmoothScroll";
 
 function App() {
   return (
     <div className="App">
+      <SmoothScroll />
       <Header />
       <MainSection />
       <ServicesSection />

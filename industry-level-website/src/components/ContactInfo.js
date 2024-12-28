@@ -39,18 +39,23 @@ const ContactInfo = () => {
           </div>{" "}
         </div>{" "}
         <div className="social-links">
-          <a href="#" className="social-icon">
+          <a
+            href="https://www.linkedin.com/in/shubhamkumar1997/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon"
+          >
             <FaLinkedin size={16} />{" "}
           </a>{" "}
-          <a href="#" className="social-icon">
-            <FaTwitter size={16} />{" "}
-          </a>{" "}
-          <a href="#" className="social-icon">
-            <FaFacebook size={16} />{" "}
-          </a>{" "}
-          <a href="#" className="social-icon">
-            <FaInstagram size={16} />{" "}
-          </a>{" "}
+          {/* <a href="#" className="social-icon">
+                                                                        <FaTwitter size={16} />{" "}
+                                                                      </a>{" "}
+                                                                      <a href="#" className="social-icon">
+                                                                        <FaFacebook size={16} />{" "}
+                                                                      </a>{" "}
+                                                                      <a href="#" className="social-icon">
+                                                                        <FaInstagram size={16} />{" "}
+                                                                      </a>{" "} */}{" "}
         </div>{" "}
       </div>{" "}
     </div>

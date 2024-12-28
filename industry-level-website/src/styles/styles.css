@@ -233,6 +233,8 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* color: #666; */
+    font-weight: 500;
 }
 
 .service-card img {
@@ -289,7 +291,7 @@ body {
 .about-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    /* padding: 0 1.5rem; */
 }
 
 .about-description {
@@ -303,7 +305,7 @@ body {
     line-height: 1.6;
     color: #333;
     text-align: center;
-    max-width: 900px;
+    /* max-width: 900px; */
     margin: 0 auto;
 }
 
@@ -582,7 +584,7 @@ body {
     max-width: 1200px;
     margin: 2rem auto;
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: stretch;
     padding: 0 1rem;
@@ -870,4 +872,18 @@ body {
     margin-top: 1rem;
     width: 100%;
     text-align: center;
+}
+
+
+/* Section Animation Styles */
+
+.section-enter {
+    opacity: 0.5;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.section-enter.active {
+    opacity: 1;
+    transform: translateY(0);
 }
