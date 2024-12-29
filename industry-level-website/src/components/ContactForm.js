@@ -1,14 +1,28 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { HiPaperAirplane, HiCheckCircle } from "react-icons/hi";
 import emailjs from "@emailjs/browser";
 import "../styles/contactForm.css";
 
-const ContactForm = () => {
+const ContactForm = ({
+  title = "Send us a Message",
+  subtitle = "Fill out the form below and we'll get back to you shortly",
+  emailjsConfig = {
+    serviceId: "service_52v28ej",
+    templateId: "template_vhabdap",
+    publicKey: "Hns0gNZywQPfUiCOT",
+  },
+  onSubmitSuccess,
+  onSubmitError,
+  customFields,
+  className = "",
+}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
+    ...(customFields || {}),
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -35,13 +49,14 @@ const ContactForm = () => {
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
+        ...formData, // Include any custom fields
       };
 
       await emailjs.send(
-        "service_52v28ej", // Replace with your EmailJS service ID
-        "template_vhabdap", // Replace with your EmailJS template ID
+        emailjsConfig.serviceId,
+        emailjsConfig.templateId,
         templateParams,
-        "Hns0gNZywQPfUiCOT" // Replace with your EmailJS public key
+        emailjsConfig.publicKey
       );
 
       setSubmitted(true);
@@ -50,10 +65,20 @@ const ContactForm = () => {
         email: "",
         subject: "",
         message: "",
+        ...(customFields || {}),
       });
+
+      if (onSubmitSuccess) {
+        onSubmitSuccess(templateParams);
+      }
+
       setTimeout(() => setSubmitted(false), 3000);
     } catch (err) {
-      setError("Failed to send message. Please try again later.");
+      const errorMessage = "Failed to send message. Please try again later.";
+      setError(errorMessage);
+      if (onSubmitError) {
+        onSubmitError(err);
+      }
       console.error("EmailJS Error:", err);
     } finally {
       setLoading(false);
@@ -69,10 +94,12 @@ const ContactForm = () => {
   };
 
   return (
-    <form className="contact-form animate-on-load" onSubmit={handleSubmit}>
+    <form
+      className={`contact-form animate-on-load ${className}`}
+      onSubmit={handleSubmit}
+    >
       <div className="form-header">
-        <h2> Send us a Message </h2>{" "}
-        <p> Fill out the form below and we 'll get back to you shortly.</p>{" "}
+        <h2> {title} </h2> <p> {subtitle} </p>{" "}
       </div>{" "}
       <div className="form-content">
         <div className={`form-group ${focused === "name" ? "focused" : ""}`}>
@@ -150,6 +177,41 @@ const ContactForm = () => {
       </div>{" "}
     </form>
   );
+};
+
+ContactForm.propTypes = {
+  // Text content props
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+
+  // EmailJS configuration
+  emailjsConfig: PropTypes.shape({
+    serviceId: PropTypes.string.isRequired,
+    templateId: PropTypes.string.isRequired,
+    publicKey: PropTypes.string.isRequired,
+  }),
+
+  // Callback functions
+  onSubmitSuccess: PropTypes.func,
+  onSubmitError: PropTypes.func,
+
+  // Custom fields and styling
+  customFields: PropTypes.object,
+  className: PropTypes.string,
+};
+
+ContactForm.defaultProps = {
+  title: "Send us a Message",
+  subtitle: "Fill out the form below and we'll get back to you shortly",
+  emailjsConfig: {
+    serviceId: "service_52v28ej",
+    templateId: "template_vhabdap",
+    publicKey: "Hns0gNZywQPfUiCOT",
+  },
+  onSubmitSuccess: undefined,
+  onSubmitError: undefined,
+  customFields: undefined,
+  className: "",
 };
 
 export default ContactForm;
